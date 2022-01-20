@@ -1,0 +1,22 @@
+{
+  "name": "@cjsi/importmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "serve ./maps --cors -p 8081",
+    "deploy-master": "ts-node update-master.ts",
+    "debug": "node --inspect-brk node_modules/.bin/ts-node update-master.ts --changeConfig={@cjsi/navy-mfe:http://localhost:8080/cjsi-navy-mfe.1.0.5.js}"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cjsi/import-map-updater": "*",
+    "serve": "^13.0.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}

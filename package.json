@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "host-team/**/*",
+    "blue-team/**/*",
+    "red-team/**/*",
+    "packages/**/*"
   ],
   "scripts": {
     "build": "turbo run build",

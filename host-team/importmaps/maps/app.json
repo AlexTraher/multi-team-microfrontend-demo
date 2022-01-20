@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+    "@cjsi/navy-mfe": "http://localhost:8080/cjsi-navy-mfe.1.0.7.js",
+    "@cjsi/root-config": "//localhost:9000/cjsi-root-config.js"
+  }
+}
