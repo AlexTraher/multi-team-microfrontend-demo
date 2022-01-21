@@ -1,4 +1,3 @@
-
 declare const version: string;
 
 export default function Root(props) {
