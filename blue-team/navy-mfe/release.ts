@@ -1,4 +1,5 @@
-import { execSync } from "child_process";
+import { triggerRelease, triggerPreRelease } from "@cjsi/import-map-updater";
+
 const version = process.env.npm_package_version;
 const packageName = process.env.npm_package_name;
 
@@ -7,12 +8,8 @@ const release = async () => {
     [packageName]: `http://localhost:8080/cjsi-navy-mfe.${version}.js`,
   };
 
-  execSync(
-    `yarn workspace @cjsi/importmap run deploy-master --changeConfig='${JSON.stringify(
-      changeConfig
-    )}'`,
-    { stdio: "inherit" }
-  );
+
+  triggerPreRelease('@cjsi/importmap', changeConfig, 'example-folder');
 };
 
 release();

@@ -6,6 +6,12 @@ registerApplication({
   activeWhen: ["/"],
 });
 
+registerApplication({
+  name: "@cjsi/maroon-mfe",
+  app: () => System.import("@cjsi/maroon-mfe"),
+  activeWhen: ["/"],
+});
+
 start({
   urlRerouteOnly: true,
 });
