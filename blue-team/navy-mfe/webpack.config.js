@@ -11,12 +11,15 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
   });
-
-  defaultConfig.externals = defaultConfig.externals.filter((ext) => !['react', 'react-dom'].includes(ext));
   debugger;
+  defaultConfig.externals = defaultConfig.externals.filter((ext) => !['react', 'react-dom'].includes(ext));
   return merge(defaultConfig, {
+    entry: {
+      'cjsi-navy-mfe': defaultConfig.entry,
+      'cjsi-navy-mfe-beta': './src/cjsi-navy-mfe-beta',
+    },
     output: {
-      filename: `cjsi-navy-mfe.${version}.js`
+      filename: `[name].${version}.js`
     },
     plugins: [new webpack.DefinePlugin({
       version: JSON.stringify(version),

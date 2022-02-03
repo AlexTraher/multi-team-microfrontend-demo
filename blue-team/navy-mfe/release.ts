@@ -1,4 +1,4 @@
-import { triggerPreRelease } from "@cjsi/import-map-updater";
+import { triggerRelease } from "@cjsi/import-map-updater";
 
 const version = process.env.npm_package_version;
 const packageName = process.env.npm_package_name;
@@ -9,7 +9,7 @@ const release = async () => {
   };
 
 
-  triggerPreRelease('@cjsi/importmap', changeConfig, 'example-folder');
+  triggerRelease('@cjsi/importmap', changeConfig);
 };
 
 release();

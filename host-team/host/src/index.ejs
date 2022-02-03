@@ -29,7 +29,22 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-  <script type="systemjs-importmap" src="http://localhost:8081/app.json">
+  </script>
+  <script type="text/javascript">
+    const importMapBase = 'http://localhost:8081/';
+    const defaultSuffix = 'app';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const suffix = urlParams.has('importVersion') ? urlParams.get('importVersion') : defaultSuffix;
+    const src = `${importMapBase}${suffix}.json`;
+    
+    const importMap = document.createElement('script');
+    importMap.type = 'systemjs-importmap';
+    importMap.src = src
+    importMap.crossOrigin = 'anonymous';
+
+    document.head.appendChild(importMap);
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
@@ -42,7 +57,6 @@
   -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script> -->
 
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
@@ -117,6 +131,5 @@
   <script>
     System.import('@cjsi/root-config');
   </script>
-  <import-map-overrides-full dev-libs></import-map-overrides-full>
 </body>
 </html>
