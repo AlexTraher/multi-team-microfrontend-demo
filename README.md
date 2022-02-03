@@ -1,10 +1,4 @@
-# Turborepo starter with NPM
+# Import map demo 
+A microfrontend architecture demo that has a host application and a shared import map, then a tool to update import maps on the fly.
 
-## TODO
 
-- Set up blue team mfes
-- set up red team mfes
-- get them loading into an import map
-- move import map into it's own folder
-- tests
-- readme

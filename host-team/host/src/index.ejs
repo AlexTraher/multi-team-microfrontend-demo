@@ -55,9 +55,64 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <main>
-    <div id="single-spa-application:@cjsi/navy-mfe"></div>
-    <div id="single-spa-application:@cjsi/maroon-mfe"></div>
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 500;
+      font-size: 30px;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col {
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      flex: 1 1 100%;
+    }
+
+    .mfe {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <main class="container">
+    <div class="row">
+      <div class="col">
+        <div id="single-spa-application:@cjsi/navy-mfe" class="mfe"></div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="single-spa-application:@cjsi/maroon-mfe" class="mfe"></div>
+      </div>
+      <div class="col">
+        <!-- <div id="single-spa-application:@cjsi/maroon-mfe"></div> -->
+      </div>
+    </div>
+    
   </main>
   <script>
     System.import('@cjsi/root-config');

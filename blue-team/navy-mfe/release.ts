@@ -1,4 +1,4 @@
-import { triggerRelease, triggerPreRelease } from "@cjsi/import-map-updater";
+import { triggerPreRelease } from "@cjsi/import-map-updater";
 
 const version = process.env.npm_package_version;
 const packageName = process.env.npm_package_name;
