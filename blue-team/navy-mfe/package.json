@@ -1,6 +1,6 @@
 {
   "name": "@cjsi/navy-mfe",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "scripts": {
     "dev": "webpack serve --port 8080",
     "dev:debug": "node --inspect-brk node_modules/.bin/webpack serve",
