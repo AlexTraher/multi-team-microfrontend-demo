@@ -1,5 +1,5 @@
 {
-  "name": "@cjsi/royal-mfe",
+  "name": "@cjsi/sky-mfe",
   "version": "1.0.1",
   "scripts": {
     "dev": "webpack serve --port 8083",

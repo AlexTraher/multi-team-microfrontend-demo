@@ -12,6 +12,12 @@ registerApplication({
   activeWhen: ["/"],
 });
 
+registerApplication({
+  name: "@cjsi/sky-mfe",
+  app: () => System.import("@cjsi/sky-mfe"),
+  activeWhen: ["/"],
+});
+
 start({
   urlRerouteOnly: true,
 });
