@@ -1,30 +1,18 @@
 import { Command, Flags } from "@oclif/core";
 import { readFile, writeFile } from "fs/promises";
+import { changeConfigFlag, ImportMap } from "../common";
 import path from "path";
 
-const flag = Flags.build({
-  char: "c",
-  description: "a json.stringified key value pair map",
-  parse: (string): Promise<Record<string, string>> => JSON.parse(string),
-  required: true,
-});
-
-export interface ImportMap {
-  imports: Record<string, string>;
-}
-
 export default class PreRelease extends Command {
-  static description = "Say hello"
+  static description = "creates a pre-release import map with changes provided and the current production import map"
 
   static examples = [
-    `$ oex hello friend --from oclif
-hello friend from oclif! (./src/commands/hello/index.ts)
-`,
+    "$ imu pre-release -m ./src/importmap.json -c \"{ \"@cjsi/navy-mfe\": \"http:localhost:8081/csji-navy-mfe.1.0.1.js\" }\" -f pre-release.json",
   ]
 
   static flags = {
     mapLocation: Flags.string({ char: "m", description: "the location of the import map", required: true }),
-    changeConfig: flag(),
+    changeConfig: changeConfigFlag(),
     preReleaseFilename: Flags.string({ char: "f", description: "the filename of the pre-release", required: true }),
   }
 
@@ -40,5 +28,6 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     };
     const filePath = path.join(path.dirname(flags.mapLocation), flags.preReleaseFilename);
     await writeFile(filePath, JSON.stringify(updatedImportMap, null, 2));
+    this.log(`Successfully pre-released a new import map and saved to ${filePath}`);
   }
 }

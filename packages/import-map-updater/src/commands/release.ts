@@ -1,29 +1,17 @@
 import { Command, Flags } from "@oclif/core";
 import { readFile, writeFile } from "fs/promises";
-
-const flag = Flags.build({
-  char: "c",
-  description: "a json.stringified key value pair map",
-  parse: (string): Promise<Record<string, string>> => JSON.parse(string),
-  required: true,
-});
-
-export interface ImportMap {
-  imports: Record<string, string>;
-}
+import { changeConfigFlag, ImportMap } from "../common";
 
 export default class Release extends Command {
-  static description = "Say hello"
+  static description = "updates the production import map with changes provided"
 
   static examples = [
-    `$ oex hello friend --from oclif
-hello friend from oclif! (./src/commands/hello/index.ts)
-`,
+    "$ imu release -m ./src/importmap.json -c \"{ \"@cjsi/navy-mfe\": \"http:localhost:8081/csji-navy-mfe.1.0.1.js\" }\"",
   ]
 
   static flags = {
     mapLocation: Flags.string({ char: "m", description: "the location of the import map", required: true }),
-    changeConfig: flag(),
+    changeConfig: changeConfigFlag(),
   }
 
   async run(): Promise<void> {
@@ -38,5 +26,6 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     };
 
     await writeFile(flags.mapLocation, JSON.stringify(updatedImportMap, null, 2));
+    this.log(`Successfully released a new import map and saved to ${flags.mapLocation}`);
   }
 }
