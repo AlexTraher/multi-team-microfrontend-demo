@@ -16,5 +16,5 @@ const Section = styled.section`
 `;
 
 export default function Root(props) {
-  return <Section>maroon-mfe ({version})</Section>;
+  return <Section>payments micro frontend ({version})</Section>;
 }

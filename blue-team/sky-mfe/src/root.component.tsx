@@ -16,9 +16,9 @@ const Section = styled.section`
 `;
 
 export default function Root(props) {
-  return <Section>sky-mfe ({version})</Section>;
+  return <Section>product details micro frontend ({version})</Section>;
 }
 
 export function RootBeta(props) {
-  return <Section>sky-mfe beta ({version})</Section>;
+  return <Section>product details micro frontend ({version})</Section>;
 }

@@ -16,9 +16,10 @@ const Section = styled.section`
 `;
 
 export default function Root(props) {
-  return <Section>navy-mfe ({version})</Section>;
+  return <Section>search micro frontend ({version})</Section>;
 }
 
 export function RootBeta(props) {
-  return <Section>navy-mfe beta ({version})</Section>;
+  return <Section>search micro frontend ({version})</Section>;
+
 }
