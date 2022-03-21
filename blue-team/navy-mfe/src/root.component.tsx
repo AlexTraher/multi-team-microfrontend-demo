@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 declare const version: string;
 
@@ -21,5 +21,4 @@ export default function Root(props) {
 
 export function RootBeta(props) {
   return <Section>navy-mfe beta ({version})</Section>;
-
 }

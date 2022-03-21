@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 declare const version: string;
 
 const Section = styled.section`
-  background-color: #22CDF3;
+  background-color: #22cdf3;
   color: white;
   flex: 1 1 100%;
   height: 100%;
@@ -21,5 +21,4 @@ export default function Root(props) {
 
 export function RootBeta(props) {
   return <Section>sky-mfe beta ({version})</Section>;
-
 }
