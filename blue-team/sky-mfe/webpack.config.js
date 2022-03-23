@@ -11,7 +11,6 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
   });
-  debugger;
   defaultConfig.externals = defaultConfig.externals.filter((ext) => !['react', 'react-dom'].includes(ext));
   return merge(defaultConfig, {
     entry: {

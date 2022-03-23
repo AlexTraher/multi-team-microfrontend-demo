@@ -11,7 +11,7 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
   });
-  debugger;
+
   defaultConfig.externals = defaultConfig.externals.filter((ext) => !['react', 'react-dom'].includes(ext));
   return merge(defaultConfig, {
     entry: {
@@ -24,7 +24,6 @@ module.exports = (webpackConfigEnv, argv) => {
     plugins: [new webpack.DefinePlugin({
       version: JSON.stringify(version),
     })],
-    // modify the webpack config however you'd like to by adding to this object
   });
 
 
